@@ -52,19 +52,19 @@ GLOBAL ERROR HANDLING USING SPRING BOOT FRAMEWORK IS IMPLEMENTED IN PHONEBOOK MI
 
 ** Technically all microservices used in this application have a clear separation of concerns to this point
 
-##INSTRUCTIONS TO INSTALL & RUN:
+## INSTRUCTIONS TO INSTALL & RUN AS SIMPLE APIs or MICROSERVICES:
 
 (a) Download the AuthMicroservice and PBookMicroservice into an IDE of your choice
 
 (b) Do a mvn clean install of these 2 projects. They are not dependent on each other and can be run individucally too. 
 
-(c) Setup the database as mentioned in the enclosed DDL.sql
+(c) Setup the database as mentioned in the enclosed DDL.sql (just table creation would do - Data gets entered as the application runs via APIs used)
 
 (d) Check the database and JWT settings in the application.properties file of each of these Microservices
 
-(e) Now run the 2 Microservices from Maven or your IDE as SPRING BOOT applications and test the APIs starting with Registering a user like a real world applicaiton and logging in as seen in below section.
+(e) Now run the 2 Microservices from Maven or your IDE as SPRING BOOT applications and test the APIs starting with Registering a user like a real world applicaiton and logging in as seen in below section (which produces the AUTH TOKEN).
 
-The JWT SECRET and Database Credentials are left as is in the application.properties - Add your specific configuration or can use the existing ones present as of now in application.properties
+The JWT SECRET and Database Credentials are left as is in the application.properties - Add your specific configuration or can use the existing default ports and settings present as of now in application.properties. (make sure you change your database password)
 
 
 ## The developed AuthMicroservice and its APIs are purely independent MIcroservices running independent o the PhoneBookMicroservice that does the business logic.
@@ -85,7 +85,7 @@ SAMPLE REQUESTS:
 RESPONSE: 
 User registered successfully
 
-2) POST /auth/login - Authenticates the user account created earlier in WRKR user database and CREATES a JWT token for use in PBOOK MICROSERTICE (REPORTS ONLY)
+2) POST /auth/login - Authenticates the user account created earlier in user database - GENERATES a JWT token for use in SUBSEQUENT APIs of PBOOK MICROSERTICE (ALL THE BUSINESS APIs)
 Content-Type: application/json
 
 {
@@ -109,7 +109,7 @@ Authorization: Bearer <the generated token from previous login API step>
     "phoneNumber": "3234698752"
 }
 
-All other business operation on the phonebook like viewing the phone book based on type, sorting a specific phonebook based on type, deleting a particular contact from a phonebook (type) based on ID, comparing the phonesbooks to display UNIQUE contacts are all done using Microservice APIs developed in PBookMicroservice.
+All other business operation on the phonebook like viewing the phone book based on type, sorting a specific phonebook based on type, deleting a particular contact from a phonebook (type) based on ID, comparing the phonesbooks to display UNIQUE contacts are all done using Microservice APIs developed under PBookMicroservice.
  
  
 [As of 10 MAR, was in the process of implementing these APIs and building a REACT UI using TSX and Vite - BUT DROPPED THAT PLAN AND INSTEAD ADDED TEST CLASSES FOR VALIDATIONS AND ALL APIS INCLUDING THE AUTH MICROSERVICE USED IN THIS TEST PROJECT]
