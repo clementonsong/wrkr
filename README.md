@@ -67,7 +67,7 @@ GLOBAL ERROR HANDLING USING SPRING BOOT FRAMEWORK IS IMPLEMENTED IN PHONEBOOK MI
 The JWT SECRET and Database Credentials are left as is in the application.properties - Add your specific configuration or can use the existing default ports and settings present as of now in application.properties. (make sure you change your database password)
 
 
-## The developed AuthMicroservice and its APIs are purely independent MIcroservices running independent o the PhoneBookMicroservice that does the business logic.
+## The developed AuthMicroservice and its APIs are purely independent MIcroservices running independent of the PhoneBookMicroservice that does the business logic.
 ** How JWT AUTH Microservice works here:
 ========================================
 There are 2 APIs in AuthMicroservice
